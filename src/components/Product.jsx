@@ -19,7 +19,7 @@ const Product = ({ product }) => {
 
   return (
     <div className={style.product}>
-      <Link to={`/${id}`}>
+      <Link to={`/product/${id}`}>
         <div className={style.title}>{title}</div>
         <div className={style.category}>{category.name}</div>
         <div className={style.img}>
