@@ -10,10 +10,10 @@ function App() {
     <div className="container">
       <Header />
       <Routes >
-        <Route path="product" element={<Products />} />
-        <Route path="liked" element={<Liked />} />
+        <Route path="/" element={<Products />} />
+        <Route path="/liked" element={<Liked />} />
         <Route path="create-product" element={<Create />} />
-        <Route path="/:id" element={<FullProduct />} />
+        <Route path=":id" element={<FullProduct />} />
       </Routes>
     </div>
   );

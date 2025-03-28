@@ -1,30 +1,42 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useGetProductQuery } from "../redux/api/apiSlice";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 import style from "../styles/fullproduct.module.css";
-import { useEffect } from "react";
 
 const FullProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+  const [product, setProduct] = useState();
 
-  const { data } = useGetProductQuery({ id });
-
-  console.log(data);
-  
+  useEffect(() => {
+    async function fetchProduct() {
+      try {
+        const { data } = await axios.get(
+          "https://api.escuelajs.co/api/v1/products/" + id
+        );
+        setProduct(data);
+        return data;
+      } catch (error) {
+        alert("Ошибка при получении данных");
+        navigate("/");
+      }
+    }
+    fetchProduct();
+  }, []);
 
   const goBack = () => navigate(-1);
 
-  return !data ? (
+  return !product ? (
     <section className="preloader">Loading...</section>
   ) : (
     <div>
       <div className={style.product}>
-        <h1 className={style.title}>{data.title}</h1>
-        <h2 className={style.price}>price {data.price}$</h2>
-        <p className={style.description}>{data.description}$</p>
+        <h1 className={style.title}>{product.title}</h1>
+        <h2 className={style.price}>price {product.price}$</h2>
+        <p className={style.description}>{product.description}$</p>
         <div className={style.img}>
-          {data.images.map((img) => (
+          {product.images.map((img) => (
             <img key={img} src={img} alt="Images" />
           ))}
         </div>

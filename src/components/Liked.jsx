@@ -1,4 +1,3 @@
-// import Product from "./Product";
 import { useSelector } from "react-redux";
 
 import style from "../styles/products.module.css";
