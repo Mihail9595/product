@@ -23,9 +23,7 @@ const FullProduct = () => {
             <img key={img} src={img} alt="Images" />
           ))}
         </div>
-
         <div className={style.buttons}>
-          {/* <button className={style.like}>like</button> */}
           <button onClick={goBack}>Return</button>{" "}
         </div>
       </div>
