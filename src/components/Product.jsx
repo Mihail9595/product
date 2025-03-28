@@ -6,7 +6,6 @@ import { useState } from "react";
 import style from "../styles/product.module.css";
 
 const Product = ({ product }) => {
-  // const { liked } = useSelector((state) => state.products);
   const [like, setLike] = useState(false);
   const dispatch = useDispatch();
 
@@ -19,7 +18,7 @@ const Product = ({ product }) => {
 
   return (
     <div className={style.product}>
-      <Link to={`/${id}`}>
+      <Link to={`product/${id}`}>
         <div className={style.title}>{title}</div>
         <div className={style.category}>{category.name}</div>
         <div className={style.img}>
