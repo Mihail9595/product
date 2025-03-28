@@ -2,11 +2,16 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useGetProductQuery } from "../redux/api/apiSlice";
 
 import style from "../styles/fullproduct.module.css";
+import { useEffect } from "react";
 
 const FullProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams();
+
   const { data } = useGetProductQuery({ id });
+
+  console.log(data);
+  
 
   const goBack = () => navigate(-1);
 
