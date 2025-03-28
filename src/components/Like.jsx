@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { removeProduct } from "../redux/productSlice";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 
 import style from "../styles/product.module.css";
 
